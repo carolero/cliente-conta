@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+	<div th:each="mensagem : ${mensagens}">
+		<p th:text="'* ' + ${mensagem}"></p>
+	</div>
+	<div>
+		<form method="POST">
+		<p>Nome: <input type="text" name="nome" > </p>
+		<p>CPF <input type="text" name="cpf" > </p>
+        <p>Telefone: <input type="text" name="telefone" > </p>
+        <p>Saldo conta corrente: <input type="number" step="any" value="0" name="saldoCorrente" > </p>
+        <p>Saldo conta poupança: <input type="number" step="any" value="0" name="saldoPolpanca" > </p>
+		<button type="submit">Cadastrar</button>
+		</form>
+    </div>
+    
+    <div>
+        <h1>Clientes</h1>
+        <ul th:each="cliente : ${clientes}">
+            <li><a href="" th:attr="href=@{'/cliente/' + ${cliente.id}}" th:text="${cliente.nome}"></a></li>
+        </ul>
+    </div>
+    
+</body>
+</html>

@@ -63,4 +63,22 @@ public class Conta implements Serializable {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+	
+	//#############################################################
+	//#############################################################
+	
+	public double sacarContaCorrente(double valor) {
+		this.saldoCorrente -= valor;
+		return valor;
+	}
+	
+	public void depositarContaCorrente(double valor) {
+		this.saldoCorrente += valor;
+	}
+	
+	public void transferirDeContaCorrenteParaPoupanca(double valor) {
+		this.saldoCorrente -= valor;
+		this.saldoPolpanca += valor;
+	}
+	
 }
